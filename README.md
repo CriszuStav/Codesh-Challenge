@@ -3,7 +3,7 @@
 ## Descrição
 API de Parser de Produtos
 
-Esta API se conecta à API da Open Food Facts para carregar dados sobre alimentos e armazená-los em uma base de dados interna. O processo de importação é automático e ocorre diariamente às `3:00AM`.
+Esta API se conecta à API da Open Food Facts para carregar dados sobre alimentos e armazená-los em uma base de dados interna. O processo de importação é automático e ocorre diariamente às `3:00AM` (para configurar o horario acesse `src/modules/cron/cron-service.ts`).
 
 Após a base de dados ser populada, a API oferece endpoints para realizar consultas, alterações e deleções dos registros. Além disso, há um endpoint dedicado para verificar o status da API e obter a data da última sincrinzação dos dados e status do banco de dados.
 
