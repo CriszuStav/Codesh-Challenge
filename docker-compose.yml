@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '80:80' # Mapeando a porta 3000 local para a 80 do container
+    environment:
+      - PORT=80
+      - FILE_NAMES_URL=https://challenges.coode.sh/food/data/json/index.txt
+      - FILE_CONTENT_URL=https://challenges.coode.sh/food/data/json
+      - MONGO_HOST=mongodb://mongo:27017
+      - MONGO_DB_NAME=Cron
+      - MONGO_USER=
+      - MONGO_PASSWORD=
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_DATABASE: Cron
